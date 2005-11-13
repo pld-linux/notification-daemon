@@ -1,16 +1,17 @@
 Summary:	Notification Daemon
 Summary(pl):	Demon powiadomieñ
 Name:		notification-daemon
-Version:	0.2.2
+Version:	0.2.4
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.gz
-# Source0-md5:	056043b929eeaa2f1217e2fbd014745c
+# Source0-md5:	d5c9739f60d04fe17dc64cf16f91d043
 URL:		http://www.galago-project.org/
 BuildRequires:	dbus-glib-devel >= 0.30
 BuildRequires:	glib2-devel >= 2.2.2
 BuildRequires:	gtk+2-devel >= 1:2.2.0
+BuildRequires:	libsexy-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 Requires:	dbus >= 0.30
