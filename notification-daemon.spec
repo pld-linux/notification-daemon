@@ -9,6 +9,7 @@ Source0:	http://www.galago-project.org/files/releases/source/notification-daemon
 # Source0-md5:	9dbab8e502d0dc10a4e3a9c943507a9b
 URL:		http://www.galago-project.org/
 BuildRequires:	dbus-glib-devel >= 0.36
+BuildRequires:	enchant-devel
 BuildRequires:	glib2-devel >= 2.2.2
 BuildRequires:	gtk+2-devel >= 1:2.2.0
 BuildRequires:	libsexy-devel
