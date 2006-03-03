@@ -2,7 +2,7 @@ Summary:	Notification Daemon
 Summary(pl):	Demon powiadomieñ
 Name:		notification-daemon
 Version:	0.3.4
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.gz
@@ -31,7 +31,8 @@ ze specyfikacj± Desktop Notifications.
 %setup -q
 
 %build
-%configure
+%configure \
+	--disable-static
 %{__make}
 
 %install
@@ -39,6 +40,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/notification-daemon-1.0/engines/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libexecdir}/*
+%dir %{_libdir}/notification-daemon-1.0
+%dir %{_libdir}/notification-daemon-1.0/engines
+%attr(755,root,root) %{_libdir}/notification-daemon-1.0/engines/*.so
+%attr(755,root,root) %{_libdir}/notification-daemon
 %{_datadir}/dbus-1/services/*.service
 %{_sysconfdir}/gconf/schemas/notification-daemon.schemas
