@@ -2,7 +2,7 @@ Summary:	Notification Daemon
 Summary(pl):	Demon powiadomieñ
 Name:		notification-daemon
 Version:	0.3.4
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.gz
