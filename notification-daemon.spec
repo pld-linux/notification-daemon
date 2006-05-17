@@ -1,20 +1,22 @@
 Summary:	Notification Daemon
 Summary(pl):	Demon powiadomieñ
 Name:		notification-daemon
-Version:	0.2.4
+Version:	0.3.5
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.gz
-# Source0-md5:	d5c9739f60d04fe17dc64cf16f91d043
+# Source0-md5:	7977c4c15139f9d53ddbfa8af707270f
 URL:		http://www.galago-project.org/
-BuildRequires:	dbus-glib-devel >= 0.30
+BuildRequires:	dbus-glib-devel >= 0.36
 BuildRequires:	glib2-devel >= 2.2.2
 BuildRequires:	gtk+2-devel >= 1:2.2.0
 BuildRequires:	libsexy-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	libwnck-devel
 BuildRequires:	pkgconfig
-Requires:	dbus >= 0.30
+Requires(post,preun):	GConf2
+Requires:	dbus >= 0.36
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,7 +31,8 @@ ze specyfikacj± Desktop Notifications.
 %setup -q
 
 %build
-%configure
+%configure \
+	--disable-static
 %{__make}
 
 %install
@@ -38,13 +41,23 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/notification-daemon-1.0/engines/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%gconf_schema_install notification-daemon.schemas
+
+%preun
+%gconf_schema_uninstall notification-daemon.schemas
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libexecdir}/*
+%dir %{_libdir}/notification-daemon-1.0
+%dir %{_libdir}/notification-daemon-1.0/engines
+%attr(755,root,root) %{_libdir}/notification-daemon-1.0/engines/*.so
+%attr(755,root,root) %{_libdir}/notification-daemon
 %{_datadir}/dbus-1/services/*.service
-%{_sysconfdir}/dbus-1/system.d/*
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/notification-daemon.conf
+%{_sysconfdir}/gconf/schemas/notification-daemon.schemas
