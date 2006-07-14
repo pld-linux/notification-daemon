@@ -2,7 +2,7 @@ Summary:	Notification Daemon
 Summary(pl):	Demon powiadomieñ
 Name:		notification-daemon
 Version:	0.3.5
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.gz
@@ -10,8 +10,8 @@ Source0:	http://www.galago-project.org/files/releases/source/notification-daemon
 Patch0:		%{name}-icon-data.patch
 URL:		http://www.galago-project.org/
 BuildRequires:	dbus-glib-devel >= 0.62
-BuildRequires:	glib2-devel >= 1:2.11.3
-BuildRequires:	gtk+2-devel >= 2:2.9.3
+BuildRequires:	glib2-devel >= 1:2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	libsexy-devel >= 0.1.8
 BuildRequires:	libstdc++-devel
 BuildRequires:	libwnck-devel
@@ -33,6 +33,7 @@ ze specyfikacj± Desktop Notifications.
 %patch0 -p1
 
 %build
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-static
 %{__make}
