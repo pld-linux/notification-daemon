@@ -1,0 +1,23 @@
+--- trunk/notification-daemon/src/Makefile.am	2006-11-05 20:07:37 UTC (rev 2937)
++++ trunk/notification-daemon/src/Makefile.am	2006-11-05 20:14:42 UTC (rev 2938)
+@@ -13,7 +13,7 @@
+ BUILT_SOURCES = notificationdaemon-dbus-glue.h
+ 
+ notificationdaemon-dbus-glue.h: notificationdaemon.xml
+-	dbus-binding-tool --mode=glib-server \
++	dbus-binding-tool --mode=glib-server --prefix=notification_daemon \
+ 		$(srcdir)/notificationdaemon.xml > notificationdaemon-dbus-glue.h
+ 
+ INCLUDES = \
+
+--- trunk/notification-daemon/src/daemon.c	2006-11-05 20:07:37 UTC (rev 2937)
++++ trunk/notification-daemon/src/daemon.c	2006-11-05 20:14:42 UTC (rev 2938)
+@@ -1089,7 +1089,7 @@
+ 	dbus_conn = dbus_g_connection_get_connection(connection);
+ 
+ 	dbus_g_object_type_install_info(NOTIFY_TYPE_DAEMON,
+-									&dbus_glib__object_info);
++									&dbus_glib_notification_daemon_object_info);
+ 
+ 	bus_proxy = dbus_g_proxy_new_for_name(connection,
+ 										  "org.freedesktop.DBus",
