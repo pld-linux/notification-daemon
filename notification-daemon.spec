@@ -1,5 +1,5 @@
 Summary:	Notification Daemon
-Summary(pl):	Demon powiadomieñ
+Summary(pl.UTF-8):   Demon powiadomieÅ„
 Name:		notification-daemon
 Version:	0.3.6
 Release:	1
@@ -26,9 +26,9 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 A daemon that displays passive pop-up notifications as per the Desktop
 Notifications spec.
 
-%description -l pl
-Demon wy¶wietlaj±cy pasywne wyskakuj±ce (pop-up) powiadomienia zgodnie
-ze specyfikacj± Desktop Notifications.
+%description -l pl.UTF-8
+Demon wyÅ›wietlajÄ…cy pasywne wyskakujÄ…ce (pop-up) powiadomienia zgodnie
+ze specyfikacjÄ… Desktop Notifications.
 
 %prep
 %setup -q
