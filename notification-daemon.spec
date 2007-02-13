@@ -1,5 +1,5 @@
 Summary:	Notification Daemon
-Summary(pl.UTF-8):   Demon powiadomień
+Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
 Version:	0.3.6
 Release:	1
