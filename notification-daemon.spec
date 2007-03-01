@@ -1,13 +1,12 @@
 Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
-Version:	0.3.6
+Version:	0.3.7
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.bz2
-# Source0-md5:	3ef10532099f42129aa3b6e0381fa5ac
-Patch0:		%{name}-dbus.patch
+# Source0-md5:	cbeae0f29a15ff93f0b763d9e1cdf1de
 URL:		http://www.galago-project.org/
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	glib2-devel >= 1:2.12.0
@@ -32,7 +31,6 @@ ze specyfikacją Desktop Notifications.
 
 %prep
 %setup -q
-%patch0 -p2
 
 %build
 %{__aclocal}
@@ -50,6 +48,8 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/notification-daemon-1.0/engines/*.la
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 %gconf_schema_uninstall notification-daemon.schemas
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_libdir}/notification-daemon-1.0
