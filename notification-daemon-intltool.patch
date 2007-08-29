@@ -1,0 +1,11 @@
+--- notification-daemon-0.3.7/intltool-merge.in~	2006-10-08 23:05:03.000000000 +0200
++++ notification-daemon-0.3.7/intltool-merge.in	2007-08-29 05:28:14.456458332 +0200
+@@ -91,7 +91,7 @@
+ 
+ my %po_files_by_lang = ();
+ my %translations = ();
+-my $iconv = $ENV{"ICONV"} || $ENV{"INTLTOOL_ICONV"} || "@INTLTOOL_ICONV@";
++my $iconv = $ENV{"ICONV"} || $ENV{"INTLTOOL_ICONV"} || "iconv";
+ my $devnull = ($^O eq 'MSWin32' ? 'NUL:' : '/dev/null');
+ 
+ # Use this instead of \w for XML files to handle more possible characters.
