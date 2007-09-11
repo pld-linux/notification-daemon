@@ -39,7 +39,8 @@ ze specyfikacją Desktop Notifications.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-static
+	--disable-static \
+	--disable-schemas-install
 %{__make}
 
 %install
