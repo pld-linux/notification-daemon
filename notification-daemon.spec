@@ -73,9 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
-%attr(755,root,root) %{_bindir}/notification-properties
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/notification-properties
 %dir %{_libdir}/notification-daemon-1.0
 %dir %{_libdir}/notification-daemon-1.0/engines
 %attr(755,root,root) %{_libdir}/notification-daemon-1.0/engines/*.so
