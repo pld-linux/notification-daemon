@@ -2,7 +2,7 @@ Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
 Version:	0.4.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.bz2
@@ -20,6 +20,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	autoconf
 BuildRequires:	automake
 Requires(post,preun):	GConf2 >= 2.14.0
+Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	hicolor-icon-theme
 Requires:	dbus >= 0.91
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,9 +62,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install notification-daemon.schemas
+%update_desktop_database_post
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall notification-daemon.schemas
+
+%postun
+%update_desktop_database_postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %attr(755,root,root) %{_bindir}/notification-properties
