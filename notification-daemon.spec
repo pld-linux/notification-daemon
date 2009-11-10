@@ -23,6 +23,7 @@ Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	hicolor-icon-theme
 Requires:	dbus >= 0.91
+Obsoletes:	dbus(org.freedesktop.Notifications)
 Provides:	dbus(org.freedesktop.Notifications)
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
