@@ -8,24 +8,28 @@ Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.bz2
 # Source0-md5:	e61eff9782551d81045bb53e8a801d58
 URL:		http://www.galago-project.org/
+BuildRequires:	GConf2-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	intltool
+BuildRequires:	libglade2-devel
+BuildRequires:	libnotify-devel
 BuildRequires:	libsexy-devel >= 0.1.8
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel
 BuildRequires:	pkgconfig
-BuildRequires:	autoconf
-BuildRequires:	automake
-Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	hicolor-icon-theme
+Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	dbus >= 0.91
-Obsoletes:	dbus(org.freedesktop.Notifications)
 Provides:	dbus(org.freedesktop.Notifications)
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	dbus(org.freedesktop.Notifications)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A daemon that displays passive pop-up notifications as per the Desktop
