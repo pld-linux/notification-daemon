@@ -1,29 +1,28 @@
 Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
-Version:	0.4.0
-Release:	3
+Version:	0.5.0
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
-Source0:	http://www.galago-project.org/files/releases/source/notification-daemon/%{name}-%{version}.tar.bz2
-# Source0-md5:	e61eff9782551d81045bb53e8a801d58
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/0.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	18919b2aa2a88b71a40f59393edf70d0
 URL:		http://www.galago-project.org/
 BuildRequires:	GConf2-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.10
+BuildRequires:	dbus-glib-devel >= 0.78
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.0
-BuildRequires:	intltool
-BuildRequires:	libglade2-devel
+BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	gnome-common
+BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libcanberra-gtk-devel >= 0.4
 BuildRequires:	libnotify-devel
-BuildRequires:	libsexy-devel >= 0.1.8
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libwnck-devel
 BuildRequires:	pkgconfig
-Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	dbus >= 0.91
@@ -68,14 +67,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install notification-daemon.schemas
-%update_desktop_database_post
 %update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall notification-daemon.schemas
 
 %postun
-%update_desktop_database_postun
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -85,10 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/notification-daemon-1.0
 %dir %{_libdir}/notification-daemon-1.0/engines
 %attr(755,root,root) %{_libdir}/notification-daemon-1.0/engines/*.so
-%attr(755,root,root) %{_libdir}/notification-daemon
+%attr(755,root,root) %{_libexecdir}/notification-daemon
 %{_datadir}/dbus-1/services/*.service
 %dir %{_datadir}/notification-daemon
-%{_datadir}/notification-daemon/notification-properties.glade
+%{_datadir}/notification-daemon/notification-properties.ui
 %{_iconsdir}/hicolor/*/apps/notification-properties.png
 %{_iconsdir}/hicolor/*/apps/notification-properties.svg
 %{_desktopdir}/notification-properties.desktop
