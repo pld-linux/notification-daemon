@@ -2,7 +2,7 @@ Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
 Version:	0.5.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/0.5/%{name}-%{version}.tar.bz2
@@ -23,6 +23,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libwnck-devel
 BuildRequires:	pkgconfig
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires:	dbus >= 0.91
