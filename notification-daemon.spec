@@ -1,12 +1,12 @@
 Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
-Version:	0.7.3
+Version:	0.7.4
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/0.7/%{name}-%{version}.tar.xz
-# Source0-md5:	3cf4b7c286cf898156eeba65c473379c
+# Source0-md5:	5efbb577cf92cb7ee3972d567c21f7b3
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
