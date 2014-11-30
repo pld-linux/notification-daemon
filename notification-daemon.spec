@@ -1,28 +1,31 @@
 Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
-Version:	0.7.6
+Version:	3.14.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/0.7/%{name}-%{version}.tar.xz
-# Source0-md5:	08c9a6d18ead0aa62d933fc5a4135d38
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	d86ac053908f2e27b9b8151cba96d721
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	gettext-devel >= 0.11
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	gtk+3-devel >= 3.8.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk3-devel >= 0.4
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires:	dbus >= 1.0.0
 Requires:	glib2 >= 1:2.28.0
+Requires:	gtk+3 >= 3.8.0
+Requires:	libcanberra-gtk3 >= 0.4
 Provides:	dbus(org.freedesktop.Notifications)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,3 +68,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libexecdir}/notification-daemon
 %{_desktopdir}/notification-daemon.desktop
+/etc/xdg/autostart/notification-daemon-autostart.desktop
