@@ -10,7 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/3.14/%{name}
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
-BuildRequires:	gettext-devel >= 0.11
+BuildRequires:	gettext-tools >= 0.11
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common
 BuildRequires:	gtk+3-devel >= 3.8.0
