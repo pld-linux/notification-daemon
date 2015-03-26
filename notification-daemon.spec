@@ -1,19 +1,19 @@
 Summary:	Notification Daemon
 Summary(pl.UTF-8):	Demon powiadomień
 Name:		notification-daemon
-Version:	3.14.1
+Version:	3.16.0
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/3.14/%{name}-%{version}.tar.xz
-# Source0-md5:	d86ac053908f2e27b9b8151cba96d721
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/notification-daemon/3.16/%{name}-%{version}.tar.xz
+# Source0-md5:	bcebfeccf5c0634e244893a4c9fd9c9a
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	gettext-tools >= 0.11
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+3-devel >= 3.8.0
+BuildRequires:	gtk+3-devel >= 3.15.2
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk3-devel >= 0.4
 BuildRequires:	libstdc++-devel
@@ -24,7 +24,7 @@ BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires:	dbus >= 1.0.0
 Requires:	glib2 >= 1:2.28.0
-Requires:	gtk+3 >= 3.8.0
+Requires:	gtk+3 >= 3.15.2
 Requires:	libcanberra-gtk3 >= 0.4
 Provides:	dbus(org.freedesktop.Notifications)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
